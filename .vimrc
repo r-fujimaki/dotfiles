@@ -1,9 +1,9 @@
 syntax on
-colorscheme monokai
-set fileencodings=utf-8,euc-jp
+colorscheme monokai "カラーテーマ
+scriptencoding utf-8
+set encoding=utf-8
 set noswapfile "スワップファイルを作らない
-set list
-set nolist
+set nolist "空白やタブの表示
 set number "行番号を表示
 set autoread "編集中のファイルが変更されたら自動で読み直す
 set showcmd "入力中のコマンドをステータスに表示
