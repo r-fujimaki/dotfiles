@@ -1,0 +1,10 @@
+[push]
+	default = matching
+[alias]
+	st = status
+	co = checkout
+	cm = commit
+	br = branch
+[user]
+	name = Ryosuke Fujimaki
+	email = fujimaki@qwintet.com
