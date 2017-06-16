@@ -21,10 +21,6 @@ alias cp='/bin/cp -i'
 alias mv='/bin/mv -i'
 alias ls='/bin/ls -la --color=auto'
 
-if [ -f ~/dircolors-solarized/dircolors.ansi-universal ]; then
-    eval `dircolors ~/dircolors-solarized/dircolors.ansi-universal -b`
-fi
-
 export HISTIGNORE="fg*:bg*:history*:ls -la:rm*"
 export HISTCONTROL=ignoredups
 export HISTSIZE=10000
