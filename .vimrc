@@ -42,33 +42,47 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_alto = 1
 
+"-------------------------------------------------
+" neocomplcache設定
+"-------------------------------------------------
+"辞書ファイル
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/php.dict filetype=php
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
+
 augroup auto_comment_off
     autocmd!
     autocmd BufEnter * setlocal formatoptions-=r
     autocmd BufEnter * setlocal formatoptions-=o
 augroup END
 
-
-" neobundle settings {{{
 if has('vim_starting')
 	set nocompatible
 	" neobundle をインストールしていない場合は自動インストール
 	if !isdirectory(expand("~/.vim/bundle/neobundle.vim/"))
 		echo "install neobundle..."
-		" vim からコマンド呼び出しているだけ neobundle.vim
-		" のクローン
 		:call system("git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim")
 	endif
 	" runtimepath の追加は必須
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
 call neobundle#begin(expand('~/.vim/bundle'))
-let g:neobundle_default_git_protocol='https'
+	let g:neobundle_default_git_protocol='https'
+	NeoBundleFetch 'Shougo/neobundle.vim'
+	NeoBundle 'itchyny/lightline.vim' "https://github.com/itchyny/lightline.vim
+	NeoBundle 'Shougo/neocomplete'    "https://github.com/Shougo/neocomplete.vim
+	NeoBundle 'Shougo/neocomplcache'
+	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
+call neobundle#end()
 
-" neobundle#begin - neobundle#end
-" の間に導入するプラグインを記載します。
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" vimrc
-" に記述されたプラグインでインストールされていないものがないかチェックする
+" vimrcに記述されたプラグインでインストールされていないものがないかチェックする
 NeoBundleCheck
+

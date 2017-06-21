@@ -5,6 +5,13 @@
 	co = checkout
 	cm = commit
 	br = branch
+	ls = ls-files
+[color]
+	ui = auto
 [user]
 	name = Ryosuke Fujimaki
 	email = fujimaki@qwintet.com
+[diff]
+	external = git_diff_wrapper
+[pager]
+	diff = 
