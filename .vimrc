@@ -57,6 +57,22 @@ let g:neocomplcache_caching_percent_in_statusline = 1
 let g:neocomplcache_enable_skip_completion = 1
 let g:neocomplcache_skip_input_time = '0.5'
 
+"-------------------------------------------------
+" neosnippet設定
+"-------------------------------------------------
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:neosnippet#snippets_directory='~/.vim/snippets/'
+
+" For conceal markers.
+if has('conceal')
+	set conceallevel=2 concealcursor=niv
+endif
+
 augroup auto_comment_off
     autocmd!
     autocmd BufEnter * setlocal formatoptions-=r
@@ -77,12 +93,10 @@ endif
 call neobundle#begin(expand('~/.vim/bundle'))
 	let g:neobundle_default_git_protocol='https'
 	NeoBundleFetch 'Shougo/neobundle.vim'
-	NeoBundle 'itchyny/lightline.vim' "https://github.com/itchyny/lightline.vim
-	NeoBundle 'Shougo/neocomplete'    "https://github.com/Shougo/neocomplete.vim
 	NeoBundle 'Shougo/neocomplcache'
 	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
+	NeoBundle 'Shougo/neosnippet-snippets'
 call neobundle#end()
 
 " vimrcに記述されたプラグインでインストールされていないものがないかチェックする
 NeoBundleCheck
-
