@@ -28,11 +28,28 @@ noremap PP "0p
 nnoremap <Down> gj
 nnoremap <Up>   gk
 
-au BufRead,BufNewFile *.scss set filetype=css
-au BufRead,BufNewFile *.ctp set filetype=php
+" インサートモードでカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
+" ある拡張子を別の拡張子に対応させる
+autocmd BufRead,BufNewFile *.scss set filetype=css
+autocmd BufRead,BufNewFile *.ctp set filetype=php
+
+" ウィンド操作
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sh <C-w>h
+nnoremap sl <C-w>l
+nnoremap + <C-w>+
+nnoremap - <C-w>-
+nnoremap ( <C-w>>
+nnoremap ) <C-w><LT>
+
+" highlight
 hi Search term=reverse ctermbg=11
-
 hi DiffAdd    ctermfg=black ctermbg=2
 hi DiffChange ctermfg=black ctermbg=3
 hi DiffDelete ctermfg=black ctermbg=6
