@@ -113,6 +113,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neocomplcache'
 	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
 	NeoBundle 'Shougo/neosnippet-snippets'
+	NeoBundle 'thinca/vim-quickrun' "https://github.com/thinca/vim-quickrun
+	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 call neobundle#end()
 
 " vimrcに記述されたプラグインでインストールされていないものがないかチェックする
