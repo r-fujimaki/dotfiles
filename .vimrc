@@ -21,22 +21,19 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set autoindent
 set smartindent
 set syn=php
-
 set grepprg=grep\ -n\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
 
 noremap PP "0p
+noremap <C-j> <esc>
+noremap! <C-j> <esc>
+
+" カーソル移動
 nnoremap <Down> gj
 nnoremap <Up>   gk
-
-" インサートモードでカーソル移動
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-
-" ある拡張子を別の拡張子に対応させる
-autocmd BufRead,BufNewFile *.scss set filetype=css
-autocmd BufRead,BufNewFile *.ctp set filetype=php
 
 " ウィンド操作
 nnoremap sj <C-w>j
@@ -58,6 +55,18 @@ hi DiffText   ctermfg=black ctermbg=7
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_alto = 1
+
+" ある拡張子を別の拡張子に対応させる
+autocmd BufRead,BufNewFile *.scss set filetype=css
+autocmd BufRead,BufNewFile *.ctp set filetype=php
+
+augroup auto_comment_off
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=r
+    autocmd BufEnter * setlocal formatoptions-=o
+augroup END
+
+
 
 "-------------------------------------------------
 " neocomplcache設定
@@ -90,11 +99,10 @@ if has('conceal')
 	set conceallevel=2 concealcursor=niv
 endif
 
-augroup auto_comment_off
-    autocmd!
-    autocmd BufEnter * setlocal formatoptions-=r
-    autocmd BufEnter * setlocal formatoptions-=o
-augroup END
+"-------------------------------------------------
+" emmet設定
+"-------------------------------------------------
+let g:user_emmet_leader_key='<C-t>'
 
 if has('vim_starting')
 	set nocompatible
@@ -115,6 +123,8 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neosnippet-snippets'
 	NeoBundle 'thinca/vim-quickrun' "https://github.com/thinca/vim-quickrun
 	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
+	NeoBundle 'tpope/vim-surround' "https://github.com/tpope/vim-surround
+	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
 call neobundle#end()
 
 " vimrcに記述されたプラグインでインストールされていないものがないかチェックする
