@@ -124,7 +124,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'thinca/vim-quickrun' "https://github.com/thinca/vim-quickrun
 	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
-	NeoBundle 'vim-scripts/taglist.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
 call neobundle#end()
 
