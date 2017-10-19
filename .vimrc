@@ -24,8 +24,6 @@ set syn=php
 set grepprg=grep\ -n\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
 
 noremap PP "0p
-noremap <C-j> <esc>
-noremap! <C-j> <esc>
 
 " カーソル移動
 nnoremap <Down> gj
@@ -115,6 +113,8 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+
+" plugin読み込み
 call neobundle#begin(expand('~/.vim/bundle'))
 	let g:neobundle_default_git_protocol='https'
 	NeoBundleFetch 'Shougo/neobundle.vim'
@@ -123,8 +123,9 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neosnippet-snippets'
 	NeoBundle 'thinca/vim-quickrun' "https://github.com/thinca/vim-quickrun
 	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
-	NeoBundle 'tpope/vim-surround' "https://github.com/tpope/vim-surround
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
+	NeoBundle 'vim-scripts/taglist.vim' "https://github.com/vim-scripts/mru.vim
+	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
 call neobundle#end()
 
 " vimrcに記述されたプラグインでインストールされていないものがないかチェックする
