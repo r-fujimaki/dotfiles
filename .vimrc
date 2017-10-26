@@ -16,6 +16,8 @@ set clipboard=unnamed
 set incsearch "入力で順次検索文字にヒットさせる
 set hlsearch "検索文字をハイライト
 set ambiwidth=double "※のような全角記号を表示
+set cursorline "カーソルラインをハイライト
+set list listchars=tab:\¦\ "インデントの表示文字
 set laststatus=2
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 set autoindent
@@ -64,6 +66,19 @@ augroup auto_comment_off
     autocmd BufEnter * setlocal formatoptions-=o
 augroup END
 
+" ペースト設定
+if &term =~ "xterm"
+	let &t_SI .= "\e[?2004h"
+	let &t_EI .= "\e[?2004l"
+	let &pastetoggle = "\e[201~"
+
+	function XTermPasteBegin(ret)
+		set paste
+		return a:ret
+	endfunction
+
+	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
 
 "-------------------------------------------------
@@ -113,6 +128,13 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+"-------------------------------------------------
+" CtrlPの設定
+"-------------------------------------------------
+let g:ctrlp_match_window = 'order:ttb,min:20,max:20,results:100' "マッチウインドウの設定. 「下部に表示, 大きさ20行で固定, 検索結果100件」
+let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
+let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
+let g:ctrlp_extensions = ['funky'] "CtrlPの拡張として「funky」を使用
 
 " plugin読み込み
 call neobundle#begin(expand('~/.vim/bundle'))
@@ -121,11 +143,13 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neocomplcache'
 	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
 	NeoBundle 'Shougo/neosnippet-snippets'
-	NeoBundle 'thinca/vim-quickrun' "https://github.com/thinca/vim-quickrun
 	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle 'vim-scripts/taglist.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
+	NeoBundle 'tacahiroy/ctrlp-funky' "CtrlPの拡張プラグイン. 関数検索
+	NeoBundle 'bronson/vim-trailing-whitespace' "末尾の全角と半角の空白文字を赤くハイライト
+	NeoBundle 'Yggdroot/indentLine' "インデントの可視化
 call neobundle#end()
 
 " vimrcに記述されたプラグインでインストールされていないものがないかチェックする
