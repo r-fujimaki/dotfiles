@@ -145,7 +145,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neosnippet-snippets'
 	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
-	NeoBundle 'vim-scripts/taglist.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
 	NeoBundle 'tacahiroy/ctrlp-funky' "CtrlPの拡張プラグイン. 関数検索
 	NeoBundle 'bronson/vim-trailing-whitespace' "末尾の全角と半角の空白文字を赤くハイライト
