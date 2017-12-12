@@ -12,7 +12,7 @@ set softtabstop=4 "キーボードをおした時のタブの表示幅
 set shiftwidth=4 "行頭でのタブの表示幅
 set tabstop=4 "行頭以外でのタブの表示幅
 set virtualedit+=block
-set clipboard=unnamed
+set clipboard+=unnamed
 set incsearch "入力で順次検索文字にヒットさせる
 set hlsearch "検索文字をハイライト
 set ambiwidth=double "※のような全角記号を表示
@@ -46,7 +46,7 @@ nnoremap ( <C-w>>
 nnoremap ) <C-w><LT>
 
 " highlight
-hi Search term=reverse ctermbg=11
+hi Search term=reverse ctermbg=12
 hi DiffAdd    ctermfg=black ctermbg=2
 hi DiffChange ctermfg=black ctermbg=3
 hi DiffDelete ctermfg=black ctermbg=6
@@ -80,6 +80,12 @@ if &term =~ "xterm"
 	inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
 endif
 
+" タグジャンプを分割
+nnoremap v<C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
+nnoremap s<C-]> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
+
+" 検索にエスケープ無しで正規表現使う
+nnoremap / /\v
 
 "-------------------------------------------------
 " neocomplcache設定
