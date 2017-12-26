@@ -26,6 +26,8 @@ set syn=php
 set grepprg=grep\ -n\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
 
 noremap PP "0p
+inoremap <silent> jj <ESC>
+
 
 " カーソル移動
 nnoremap <Down> gj
@@ -121,7 +123,19 @@ endif
 "-------------------------------------------------
 " emmet設定
 "-------------------------------------------------
-let g:user_emmet_leader_key='<C-t>'
+"let g:user_emmet_leader_key='<C-t>'
+
+"-------------------------------------------------
+" CtrlPの設定
+"-------------------------------------------------
+let g:ctrlp_match_window = 'order:ttb,min:20,max:20,results:100' "マッチウインドウの設定. 「下部に表示, 大きさ20行で固定, 検索結果100件」
+let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
+let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
+let g:ctrlp_extensions = ['funky'] "CtrlPの拡張として「funky」を使用
+
+"-------------------------------------------------
+" プラグインのインストール
+"-------------------------------------------------
 
 if has('vim_starting')
 	set nocompatible
@@ -134,14 +148,6 @@ if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-"-------------------------------------------------
-" CtrlPの設定
-"-------------------------------------------------
-let g:ctrlp_match_window = 'order:ttb,min:20,max:20,results:100' "マッチウインドウの設定. 「下部に表示, 大きさ20行で固定, 検索結果100件」
-let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
-let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
-let g:ctrlp_extensions = ['funky'] "CtrlPの拡張として「funky」を使用
-
 " plugin読み込み
 call neobundle#begin(expand('~/.vim/bundle'))
 	let g:neobundle_default_git_protocol='https'
@@ -149,7 +155,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neocomplcache'
 	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
 	NeoBundle 'Shougo/neosnippet-snippets'
-	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
+"	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
 	NeoBundle 'tacahiroy/ctrlp-funky' "CtrlPの拡張プラグイン. 関数検索
