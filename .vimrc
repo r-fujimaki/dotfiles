@@ -28,11 +28,14 @@ set grepprg=grep\ -n\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-
 noremap PP "0p
 inoremap <silent> jj <ESC>
 
-
 " カーソル移動
-nnoremap <Down> gj
-nnoremap <Up>   gk
-inoremap <C-j> <Down>
+"nnoremap j gj
+"onoremap j gj
+"xnoremap j gj
+"nnoremap k gk
+"onoremap k gk
+"xnoremap k gk
+"inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
@@ -57,6 +60,15 @@ hi DiffText   ctermfg=black ctermbg=7
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_alto = 1
+
+" PHP設定
+let g:php_baselib       = 1
+let g:php_htmlInStrings = 1
+let g:php_noShortTags   = 1
+let g:php_sql_query     = 1
+
+" MySql設定
+let g:sql_type_default = 'mysql'
 
 " ある拡張子を別の拡張子に対応させる
 autocmd BufRead,BufNewFile *.scss set filetype=css
@@ -88,6 +100,9 @@ nnoremap s<C-]> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
 " 検索にエスケープ無しで正規表現使う
 nnoremap / /\v
+
+"改行で補完ウィンドウを閉じる
+inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
 
 "-------------------------------------------------
 " neocomplcache設定
@@ -157,6 +172,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neosnippet-snippets'
 "	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
+	NeoBundle 'thinca/vim-quickrun'
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
 	NeoBundle 'tacahiroy/ctrlp-funky' "CtrlPの拡張プラグイン. 関数検索
 	NeoBundle 'bronson/vim-trailing-whitespace' "末尾の全角と半角の空白文字を赤くハイライト

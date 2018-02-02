@@ -1,5 +1,5 @@
-snippet phtml
-	<?php echo $this->Html->url(['controller' => '${1:#:controller}', 'action' => '${2:#:action}'); ?>
+snippet purl
+	<?php echo $this->Html->url(['controller' => '${1:#:controller}', 'action' => '${2:#:action}']); ?>
 
 snippet pecho
 	<?php echo h(${1}); ?>
@@ -34,6 +34,9 @@ snippet pendif
 
 snippet pendforeach
 	<?php endforeach; ?>
+
+snippet pdebug
+	<?php debug(${1:$target}); ?>
 
 snippet abs
 abbr 絶対値
