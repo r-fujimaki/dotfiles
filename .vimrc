@@ -23,7 +23,7 @@ set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V
 set autoindent
 set smartindent
 set syn=php
-set grepprg=grep\ -n\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
+set grepprg=grep\ -n\ --exclude-dir=\'tmp\'\ --exclude-dir=\'theme\'\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
 
 noremap PP "0p
 inoremap <silent> jj <ESC>
@@ -62,10 +62,10 @@ let g:netrw_altv = 1
 let g:netrw_alto = 1
 
 " PHP設定
-let g:php_baselib       = 1
-let g:php_htmlInStrings = 1
-let g:php_noShortTags   = 1
-let g:php_sql_query     = 1
+"let g:php_baselib       = 1
+"let g:php_htmlInStrings = 1
+"let g:php_noShortTags   = 1
+"let g:php_sql_query     = 1
 
 " MySql設定
 let g:sql_type_default = 'mysql'
