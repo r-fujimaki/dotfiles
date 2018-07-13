@@ -1,7 +1,9 @@
 snippet purl
+options word
 	<?php echo $this->Html->url(['controller' => '${1:#:controller}', 'action' => '${2:#:action}']); ?>
 
 snippet pecho
+options word
 	<?php echo h(${1}); ?>
 
 snippet pforeach
@@ -36,7 +38,12 @@ snippet pendforeach
 	<?php endforeach; ?>
 
 snippet pdebug
+options word
 	<?php debug(${1:$target}); ?>
+
+snippet adap
+options word
+	$this->getAdapter()->quoteInto(${1:$target})
 
 snippet abs
 abbr 絶対値
