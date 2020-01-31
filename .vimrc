@@ -47,8 +47,8 @@ nnoremap sh <C-w>h
 nnoremap sl <C-w>l
 nnoremap + <C-w>+
 nnoremap - <C-w>-
-nnoremap ( <C-w>>
-nnoremap ) <C-w><LT>
+nnoremap ) <C-w>>
+nnoremap ( <C-w><LT>
 
 " highlight
 hi Search term=reverse ctermbg=12
