@@ -15,7 +15,7 @@ alias cp='/bin/cp -i'
 alias mv='/bin/mv -i'
 
 # OSでオプション分岐
-if ["$(uname) == 'Darwin'"]; then
+if [ "$(uname)" == 'Darwin' ]; then
 	alias ls='/bin/ls -laG'
 else
 	alias ls='/bin/ls -la --color=auto'
