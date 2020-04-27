@@ -13,7 +13,14 @@ fi
 alias rm='/bin/rm -i'
 alias cp='/bin/cp -i'
 alias mv='/bin/mv -i'
-alias ls='/bin/ls -la --color=auto'
+
+# OSでオプション分岐
+if ["$(uname) == 'Darwin'"]; then
+	alias ls='/bin/ls -laG'
+else
+	alias ls='/bin/ls -la --color=auto'
+fi
+
 
 export HISTIGNORE="fg*:bg*:history*:ls -la:rm*"
 export HISTCONTROL=ignoredups
