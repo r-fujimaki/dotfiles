@@ -138,7 +138,7 @@ endif
 "-------------------------------------------------
 " emmet設定
 "-------------------------------------------------
-"let g:user_emmet_leader_key='<C-t>'
+let g:user_emmet_leader_key='<C-t>'
 
 "-------------------------------------------------
 " CtrlPの設定
@@ -170,7 +170,7 @@ call neobundle#begin(expand('~/.vim/bundle'))
 	NeoBundle 'Shougo/neocomplcache'
 	NeoBundle 'Shougo/neosnippet'     "https://github.com/Shougo/neosnippet.vim
 	NeoBundle 'Shougo/neosnippet-snippets'
-"	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
+	NeoBundle 'mattn/emmet-vim' "https://github.com/mattn/emmet-vim
 	NeoBundle 'vim-scripts/mru.vim' "https://github.com/vim-scripts/mru.vim
 	NeoBundle 'thinca/vim-quickrun'
 	NeoBundle "ctrlpvim/ctrlp.vim" "https://github.com/ctrlpvim/ctrlp.vim
