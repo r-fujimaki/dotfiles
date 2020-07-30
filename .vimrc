@@ -24,6 +24,8 @@ set autoindent
 set smartindent
 set syn=php
 set grepprg=grep\ -n\ --exclude-dir=\'tmp\'\ --exclude-dir=\'theme\'\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
+set viminfo=
+set wildignore=**/gulp/**,**/php-vendor/**,**/scss/**,**/SQL/**,**/cakephp2/lib/**,**/cakephp2/plugins/DebugKit/**,**/cakephp2/app_*/tmp/**,**/cakephp2/app_*/webroot/**,**/cakephp/lib/**,**/cakephp/plugins/DebugKit/**,**/cakephp/app_*/tmp/**,**/cakephp/app_*/webroot/**
 
 noremap PP "0p
 inoremap <silent> jj <ESC>
@@ -147,6 +149,7 @@ let g:ctrlp_match_window = 'order:ttb,min:20,max:20,results:100' "マッチウ�
 let g:ctrlp_show_hidden = 1 " .(ドット)から始まるファイルも検索対象にする
 let g:ctrlp_types = ['fil'] "ファイル検索のみ使用
 let g:ctrlp_extensions = ['funky'] "CtrlPの拡張として「funky」を使用
+let g:ctrlp_custom_ignore = 'gulp\|php-vendor\|scss\|SQL\|cakephp/lib\|cakephp2/lib\|cakephp/plugins\|cakephp2/plugins'
 
 "-------------------------------------------------
 " プラグインのインストール
