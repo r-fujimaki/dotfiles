@@ -25,7 +25,9 @@ set smartindent
 set syn=php
 set grepprg=grep\ -n\ --exclude-dir=\'tmp\'\ --exclude-dir=\'theme\'\ --exclude=\'tags\'\ --exclude=\'*.svn*\'\ --exclude=\'all-wcprops\'\ --exclude=\'entries\'\ --exclude=\'*.tmp\'\ $*\ /dev/null
 set viminfo=
-set wildignore=**/gulp/**,**/php-vendor/**,**/scss/**,**/SQL/**,**/cakephp2/lib/**,**/cakephp2/plugins/DebugKit/**,**/cakephp2/app_*/tmp/**,**/cakephp2/app_*/webroot/**,**/cakephp/lib/**,**/cakephp/plugins/DebugKit/**,**/cakephp/app_*/tmp/**,**/cakephp/app_*/webroot/**
+set wildignore=**/.git/**,**/node_modules/**,**/gulp/**,**/php-vendor/**,**/scss/**,**/SQL/**,**/cakephp2/lib/**,**/cakephp2/plugins/DebugKit/**,**/cakephp2/app_*/tmp/**,**/cakephp2/app_*/webroot/**,**/cakephp/lib/**,**/cakephp/plugins/DebugKit/**,**/cakephp/app_*/tmp/**,**/cakephp/app_*/webroot/**
+
+source ~/dotfiles/.vim/plugin/matchit.vim
 
 noremap PP "0p
 inoremap <silent> jj <ESC>
