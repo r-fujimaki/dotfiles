@@ -102,9 +102,6 @@ endif
 nnoremap v<C-]> :vsp<CR> :exe("tjump ".expand('<cword>'))<CR>
 nnoremap s<C-]> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 
-" 検索にエスケープ無しで正規表現使う
-nnoremap / /\v
-
 "改行で補完ウィンドウを閉じる
 inoremap <expr><CR> neocomplcache#smart_close_popup() . "\<CR>"
 
